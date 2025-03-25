@@ -25,3 +25,22 @@ Use
      CircLab detection -h 
      CircLab detection -i -g data/genome/aragenome.fa -i data/raw.fastq/Ath/Ath_simu_1.fq,data/raw.fastq/Ath/Ath_simu_2.fq -a data/gene.gtf -o outfile 
   ```
+
+2. ​**Functional Prediction**  
+   - Predicts circRNA-miRNA-mRNA interaction networks.
+   
+    ```bsh
+       CircLab function miRNA
+    ```
+   - Identifies conserved circRNAs across species using sequence alignment and conservation matrix analysis.
+   
+    ```bsh
+       CircLab function conservation 
+    ```
+
+3. ​**Visualization**  
+   - Provides six visualization functions, including circRNA length distribution, junction reads, tissue-specific expression, and codon composition.  
+
+4. ​**Gene Annotation**  
+   - Performs GO and KEGG enrichment analysis for circRNA parent genes.  
+   - Outputs structured tables and visualizations for downstream analysis.  
