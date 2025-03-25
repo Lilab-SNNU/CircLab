@@ -25,7 +25,7 @@ Use
      CircLab detection -h 
      CircLab detection -i -g data/genome/aragenome.fa -i data/raw.fastq/Ath/Ath_simu_1.fq,data/raw.fastq/Ath/Ath_simu_2.fq -a data/gene.gtf -o outfile 
   ```
-
+  ![snakemake rules](workflow.svg)
 2. ​**Functional Prediction**  
    - Predicts circRNA-miRNA-mRNA interaction networks.
    
