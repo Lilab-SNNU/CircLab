@@ -1,0 +1,17 @@
+f_suffix: _1.fq
+gtf: ''
+out_dir: test3
+out_path: ../tools_out/1105
+r_suffix: _2.fq
+ref: aragenome.fa
+ref_path: data/genome
+sample_format:
+- gz
+- not_gz
+samples:
+  Ara_sample:
+  - data/raw.fastq/Ara_sample_1.fq
+  - data/raw.fastq/Ara_sample_2.fq
+samples_path: data/raw.fastq
+suffix: fq
+tools_path: /home/li/public2/xm/circlab

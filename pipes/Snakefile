@@ -1,0 +1,43 @@
+import os
+from os import path
+
+configfile: "config/config.yaml"
+samples_path = config["samples_path"]
+SAMPLES=config["samples"].keys()
+#print(f"samplename: {SAMPLES}")
+ruleorder: circ_anno_star > merge1
+ruleorder: circ_anno_star > merge2
+ruleorder: circ_anno_star > merge3
+
+def input_fastq(wildcards):
+    R1 = path.join(samples_path, f"{wildcards.sample}{config['f_suffix']}")
+    R2 = path.join(samples_path, f"{wildcards.sample}{config['r_suffix']}")
+    return R1, R2
+
+rule all:
+    input:
+        # quality
+        expand(path.join(config['out_path'],config['out_dir'],"fastp/{sample}_1.fq"),sample=SAMPLES),
+        expand(path.join(config['out_path'],config['out_dir'],"fastp/{sample}_2.fq"),sample=SAMPLES),
+        # predict
+        expand(path.join(config['out_path'],config['out_dir'],"CIRI2/{sample}"),sample=SAMPLES),
+        expand(path.join(config['out_path'],config['out_dir'],"findcirc/{sample}.txt"),sample=SAMPLES),
+        expand(path.join(config['out_path'],config['out_dir'],"CIRCexplorer2/bwa/{sample}"),sample=SAMPLES),
+        # Star_CIRC
+        expand(path.join(config['out_path'],config['out_dir'],"CIRCexplorer2/star/{sample}"),sample=SAMPLES),
+        expand(path.join(config['out_path'],config['out_dir'],"{sample}_recirc.txt"),sample=SAMPLES),
+        expand(path.join(config['out_path'],config['out_dir'],"{sample}_recirc_f.txt"), sample=SAMPLES)
+        # tophat_CIRC
+        # merge
+        # full_length
+        # ciri_full & ...
+        #
+
+#--------------------------include rules---------------------------------#
+include: "../rules/quality.smk"
+include: "../rules/bwa_ciri.smk"
+include: "../rules/bowtie2_find_circ.smk"
+include: "../rules/bwa_CIRC.smk"
+include: "../rules/star_CIRC.smk"
+include: "../rules/incorporate.smk"
+#include: "../rules/"

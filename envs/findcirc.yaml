@@ -1,0 +1,19 @@
+name: findcirc
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - python=2.7.18
+  - bowtie2=2.2.5
+  - pysam=0.8.4
+  - tophat=2.1.1
+  - numpy=1.16.6
+  - htslib=1.9
+  - libgcc-ng=12
+  - libzlib=1.2.13
+  - ncurses=6.4
+
+
+
+
+

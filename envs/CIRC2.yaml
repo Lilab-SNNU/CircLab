@@ -1,0 +1,8 @@
+name: CIRC2
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - CIRCexplorer2
+  - ucsc-gtftogenepred
+  - openssl
